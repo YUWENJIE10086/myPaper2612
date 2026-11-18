@@ -1,0 +1,50 @@
+name: v1-paper-experiments
+on:
+  push:
+    paths:
+      - '.github/workflows/v1-paper-experiments.yml'
+      - '1118/papers/v1/code/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify real binary source and prepare experiment environment
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv,json
+          a=Path('0805数据/多规格按日查询/202501.xls')
+          b=Path('Papers2/v18/data/raw_panel_v1.csv')
+          assert a.exists() and b.exists()
+          with b.open(encoding='utf-8-sig') as f:
+              rd=csv.DictReader(f)
+              keys=rd.fieldnames
+              rows=list(rd)
+          payload={'source_file_count':len(list(Path('0805数据/多规格按日查询').glob('*.xls'))),
+                   'source_binary_signature':a.read_bytes()[:8].hex(),
+                   'derived_panel_rows':len(rows),
+                   'derived_panel_columns':len(keys),
+                   'first_month':min(x['ym'] for x in rows),
+                   'last_month':max(x['ym'] for x in rows),
+                   'source':'GitHub Actions runner raw repo bytes; not model results'}
+          p=Path('1118/papers/v1/results')
+          p.mkdir(parents=True,exist_ok=True)
+          (p/'environment_audit.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(payload,ensure_ascii=False))
+          PY
+      - name: Commit audit results without changing raw data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 1118/papers/v1/results/environment_audit.json
+          git diff --cached --quiet || (git commit -m "paper-v1: verify raw XLS and panel in runner" && git push)
