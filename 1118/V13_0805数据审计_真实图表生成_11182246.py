@@ -242,6 +242,7 @@ def main():
     folder=root/"0805数据"/"多规格按日查询"
     out=root/"1118"/"V13_本地审计结果_不自动提交"
     out.mkdir(parents=True,exist_ok=True)
+    (out/".gitignore").write_text("*\n!.gitignore\n",encoding="utf-8")
     files=sorted(folder.glob("20????.xls"))
     if not files:
         raise SystemExit("未找到19份源文件；请使用完整仓库根路径传入 --repo-root")
