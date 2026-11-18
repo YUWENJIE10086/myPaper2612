@@ -338,10 +338,17 @@ def build_docx():
     r=pp.add_run(ENG_TITLE);font_run(r,13,True)
     add_paragraph(doc,"Abstract: "+EN_ABS,fs=10.5,indent=False)
     add_paragraph(doc,"Keywords: cigarette marketing; product forecasting; graph association; temporal holdout; reproducibility",fs=10.5,indent=False)
+    in_references=False
     for kind,val in paper:
-        if kind=="h1":add_heading(doc,val,1)
+        if kind=="h1":
+            add_heading(doc,val,1)
+            if val=="参考文献":in_references=True
         elif kind=="h2":add_heading(doc,val,2)
-        elif kind=="p":add_paragraph(doc,val)
+        elif kind=="p":
+            if in_references:
+                add_paragraph(doc,val,fs=10.5,indent=False,
+                              align=WD_ALIGN_PARAGRAPH.LEFT,space_after=Pt(2))
+            else:add_paragraph(doc,val)
         elif kind=="table":add_table_doc(doc,*val)
         elif kind=="fig":add_image(doc,*val)
     # Footer page number field, per official journal guidance
