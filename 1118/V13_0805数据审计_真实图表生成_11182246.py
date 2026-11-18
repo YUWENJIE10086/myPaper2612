@@ -156,11 +156,11 @@ def baseline(predictions, skus, dates, data, valstart, teststart, testend):
     # Only two transparent, legitimate P1 baselines; no TFT/MTGNN results invented.
     result=[]
     for sku in skus:
-        series={d:data[(d,sku)] for d in dates if (d,sku) in data}
+        series={d:data[(d.isoformat(),sku)] for d in dates if (d.isoformat(),sku) in data}
         for day in dates:
             if day < teststart or day > testend or day not in series:
                 continue
-            last7=[(day-timedelta(days=k)).isoformat() for k in range(1,8)]
+            last7=[day-timedelta(days=k) for k in range(1,8)]
             if not all(d in series for d in last7):
                 continue
             pred={"Lag7":series[last7[-1]],"Mean7":sum(series[d] for d in last7)/7}
