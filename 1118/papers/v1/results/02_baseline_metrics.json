@@ -1,0 +1,290 @@
+{
+  "experiment_provenance": "real GitHub repo XLS plus prior raw_panel_v1.csv",
+  "prediction_unit": "SKU x target month (not day)",
+  "models": [
+    "Lag1",
+    "Mean3",
+    "Seasonal12",
+    "PeerLag",
+    "Ridge",
+    "HistGB",
+    "GraphHistGB"
+  ],
+  "no_TFT_or_GAT_or_MTGNN_training": true,
+  "results": [
+    {
+      "h_months": 1,
+      "model": "GraphHistGB",
+      "n": 478,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 2.964325,
+      "wmape": 0.714311,
+      "bias": -2.385377,
+      "sum_y": 1983.656
+    },
+    {
+      "h_months": 1,
+      "model": "HistGB",
+      "n": 478,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 2.965176,
+      "wmape": 0.714516,
+      "bias": -2.394786,
+      "sum_y": 1983.656
+    },
+    {
+      "h_months": 1,
+      "model": "Lag1",
+      "n": 478,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 2.499969,
+      "wmape": 0.602416,
+      "bias": 0.134366,
+      "sum_y": 1983.656
+    },
+    {
+      "h_months": 1,
+      "model": "Mean3",
+      "n": 478,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 3.102415,
+      "wmape": 0.747586,
+      "bias": 0.96445,
+      "sum_y": 1983.656
+    },
+    {
+      "h_months": 1,
+      "model": "PeerLag",
+      "n": 478,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 4.140356,
+      "wmape": 0.997698,
+      "bias": 1.543988,
+      "sum_y": 1983.656
+    },
+    {
+      "h_months": 1,
+      "model": "Ridge",
+      "n": 478,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 3.016735,
+      "wmape": 0.72694,
+      "bias": -2.696179,
+      "sum_y": 1983.656
+    },
+    {
+      "h_months": 1,
+      "model": "Seasonal12",
+      "n": 368,
+      "n_skus": 97,
+      "test_months": 5,
+      "mae": 3.115363,
+      "wmape": 0.604051,
+      "bias": -0.731415,
+      "sum_y": 1897.9412
+    },
+    {
+      "h_months": 2,
+      "model": "GraphHistGB",
+      "n": 441,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 3.037023,
+      "wmape": 0.68139,
+      "bias": -2.346259,
+      "sum_y": 1965.58
+    },
+    {
+      "h_months": 2,
+      "model": "HistGB",
+      "n": 441,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 3.033382,
+      "wmape": 0.680573,
+      "bias": -2.341403,
+      "sum_y": 1965.58
+    },
+    {
+      "h_months": 2,
+      "model": "Lag1",
+      "n": 441,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 4.359935,
+      "wmape": 0.9782,
+      "bias": 1.727902,
+      "sum_y": 1965.58
+    },
+    {
+      "h_months": 2,
+      "model": "Mean3",
+      "n": 441,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 3.814144,
+      "wmape": 0.855746,
+      "bias": 1.450257,
+      "sum_y": 1965.58
+    },
+    {
+      "h_months": 2,
+      "model": "PeerLag",
+      "n": 441,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 18.20046,
+      "wmape": 4.083478,
+      "bias": 15.385525,
+      "sum_y": 1965.58
+    },
+    {
+      "h_months": 2,
+      "model": "Ridge",
+      "n": 441,
+      "n_skus": 120,
+      "test_months": 5,
+      "mae": 3.496994,
+      "wmape": 0.78459,
+      "bias": -3.292752,
+      "sum_y": 1965.58
+    },
+    {
+      "h_months": 2,
+      "model": "Seasonal12",
+      "n": 356,
+      "n_skus": 98,
+      "test_months": 5,
+      "mae": 3.196476,
+      "wmape": 0.600179,
+      "bias": -0.736575,
+      "sum_y": 1896.0092
+    },
+    {
+      "h_months": 3,
+      "model": "GraphHistGB",
+      "n": 404,
+      "n_skus": 110,
+      "test_months": 5,
+      "mae": 3.721039,
+      "wmape": 0.773003,
+      "bias": -3.013931,
+      "sum_y": 1944.752
+    },
+    {
+      "h_months": 3,
+      "model": "HistGB",
+      "n": 404,
+      "n_skus": 110,
+      "test_months": 5,
+      "mae": 3.660396,
+      "wmape": 0.760406,
+      "bias": -2.922244,
+      "sum_y": 1944.752
+    },
+    {
+      "h_months": 3,
+      "model": "Lag1",
+      "n": 404,
+      "n_skus": 110,
+      "test_months": 5,
+      "mae": 4.944217,
+      "wmape": 1.027105,
+      "bias": 1.244233,
+      "sum_y": 1944.752
+    },
+    {
+      "h_months": 3,
+      "model": "Mean3",
+      "n": 404,
+      "n_skus": 110,
+      "test_months": 5,
+      "mae": 4.214748,
+      "wmape": 0.875566,
+      "bias": 1.456623,
+      "sum_y": 1944.752
+    },
+    {
+      "h_months": 3,
+      "model": "PeerLag",
+      "n": 404,
+      "n_skus": 110,
+      "test_months": 5,
+      "mae": 20.200375,
+      "wmape": 4.196397,
+      "bias": 16.117605,
+      "sum_y": 1944.752
+    },
+    {
+      "h_months": 3,
+      "model": "Ridge",
+      "n": 404,
+      "n_skus": 110,
+      "test_months": 5,
+      "mae": 3.280511,
+      "wmape": 0.681489,
+      "bias": -2.462292,
+      "sum_y": 1944.752
+    },
+    {
+      "h_months": 3,
+      "model": "Seasonal12",
+      "n": 341,
+      "n_skus": 90,
+      "test_months": 5,
+      "mae": 3.354538,
+      "wmape": 0.603263,
+      "bias": -0.751873,
+      "sum_y": 1896.1852
+    }
+  ],
+  "grouping": [
+    {
+      "h": 1,
+      "status": "computed",
+      "train": 546,
+      "validation": 147,
+      "test": 478,
+      "num_skus_train": 116,
+      "num_skus_test": 120
+    },
+    {
+      "h": 2,
+      "status": "computed",
+      "train": 438,
+      "validation": 157,
+      "test": 441,
+      "num_skus_train": 113,
+      "num_skus_test": 120
+    },
+    {
+      "h": 3,
+      "status": "computed",
+      "train": 331,
+      "validation": 172,
+      "test": 404,
+      "num_skus_train": 101,
+      "num_skus_test": 110
+    }
+  ],
+  "paired_month_bootstrap": {
+    "comparison": "HistGB-minus-GraphHistGB",
+    "h": 1,
+    "matched_points": 478,
+    "independent_month_blocks": 5,
+    "wmape_gain_absolute": 0.00020496089632637826,
+    "boot95": [
+      -0.0026136160328447703,
+      0.0030654813170835063
+    ],
+    "can_claim_statistical_advantage": false,
+    "method": "500 month-block bootstrap, only five target months; CI exploratory"
+  },
+  "method_warning": "Only 12 training months, 2 validation and 5 future holdout: pilot evidence only."
+}
