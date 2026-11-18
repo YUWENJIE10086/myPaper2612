@@ -32,12 +32,7 @@ jobs:
         with:
           name: paper-v1-deliverables
           path: |
-            1118/papers/v1/论文*.docx
-            1118/papers/v1/论文*.md
-            1118/papers/v1/论文*.html
-            1118/papers/v1/figures/*.png
-            1118/papers/v1/results/01_data_audit.json
-            1118/papers/v1/results/02_baseline_metrics.json
+            1118/papers/v1/**
           if-no-files-found: error
       - name: Commit aggregate results, figures, and paper (NO RAW DATA)
         run: |
