@@ -362,7 +362,8 @@ def charts(x,mat,codes,pred,graphs):
     save(fig,"Fig04_multi_horizon_wmape")
     # Predefined SKU case selection by historical totals (not based on best predictions)
     historical=np.nansum(mat[:,:12],axis=1)
-    eligible=np.where(np.isfinite(historical)&(historical>0))[0]
+    tested=main.loc[main.model=="HistGB","sku_idx"].unique().astype(int)
+    eligible=np.array([i for i in tested if np.isfinite(historical[i]) and historical[i]>0],dtype=int)
     if len(eligible):
         sortedids=eligible[np.argsort(historical[eligible])]
         cases=[sortedids[min(int((len(sortedids)-1)*q),len(sortedids)-1)] for q in (.25,.5,.9)]
