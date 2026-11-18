@@ -280,7 +280,7 @@
     "independent_month_blocks": 5,
     "wmape_gain_absolute": 0.00020496089632637826,
     "boot95": [
-      -0.0026136160328447703,
+      -0.0026136160328448232,
       0.0030654813170835063
     ],
     "can_claim_statistical_advantage": false,
