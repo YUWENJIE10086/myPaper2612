@@ -27,10 +27,22 @@ jobs:
           if test -f 1118/papers/v1/code/02_build_paper.py; then
             python 1118/papers/v1/code/02_build_paper.py
           fi
+      - name: Package generated journal manuscript and figure previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-v1-deliverables
+          path: |
+            1118/papers/v1/论文*.docx
+            1118/papers/v1/论文*.md
+            1118/papers/v1/论文*.html
+            1118/papers/v1/figures/*.png
+            1118/papers/v1/results/01_data_audit.json
+            1118/papers/v1/results/02_baseline_metrics.json
+          if-no-files-found: error
       - name: Commit aggregate results, figures, and paper (NO RAW DATA)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A 1118/papers/v1/results 1118/papers/v1/figures
-          git add -A 1118/papers/v1/论文* 1118/papers/v1/README.md 2>/dev/null || true
+          git add -A 1118/papers/v1/*.docx 1118/papers/v1/*.md 1118/papers/v1/*.html 2>/dev/null || true
           git diff --cached --quiet || (git commit -m "paper v1: real-data experiments, charts and journal DOCX" && git push)
